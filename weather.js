@@ -1,12 +1,26 @@
-const searchField = document.getElementById("city-name")
+const searchField = document.getElementById("city-name");
 
-searchField.value="paris"
-getFetch()
+searchField.value="paris";
+
 searchField.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
       getFetch();
     }
   });
+searchField.addEventListener("input",autocompleteCities);
+
+const autocompleteResults = document.getElementById("autocomplete-results");
+
+autocompleteResults.addEventListener('click', function(event) {
+    if (event.target.tagName === 'LI') {
+      searchField.value = event.target.textContent;
+      getFetch();
+      autocompleteResults.innerHTML = '';
+    }
+  });
+
+getFetch();
+
 function getFetch(){
 
     let enterdCityName = document.getElementById("city-name").value
@@ -57,25 +71,12 @@ function getFetch(){
     
 }
 
-searchField.addEventListener("input",autocompleteCities);
-
-const autocompleteResults = document.getElementById("autocomplete-results");
-autocompleteResults.addEventListener('click', function(event) {
-    if (event.target.tagName === 'LI') {
-      searchField.value = event.target.textContent;
-      getFetch();
-      autocompleteResults.innerHTML = '';
-    }
-  });
-
 function autocompleteCities() {
     
     const enteredText = searchField.value.trim();
     
-    
-
     if (enteredText.length >= 2) {
-        const filteredCities = worldCities.filter(city => city.toLowerCase().startsWith(enteredText.toLowerCase())).slice(0, 5);
+        const filteredCities = worldCities.filter(city => city.toLowerCase().startsWith(enteredText.toLowerCase())).slice(0, 3);
         
         autocompleteResults.innerHTML = "";
 
