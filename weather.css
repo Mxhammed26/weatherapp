@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 *{
     margin: 0;
     padding: 0;
@@ -20,39 +22,44 @@ body{
     padding: 40px;
 }
 
-.search-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.search-box input{
-    border: none;
-    width: 100%;
-    outline: none;
-    height: 60px;
-    border-radius: 30px;
-    color: #555;
-    background-color: #efff;
-    font-size: 17px;
-    padding:0 0 0 20px ;
-
-}
-
-.search-box  button {
-    background-color: #efff;
-    outline: none;
-    border: none;
-    border-radius: 50%;
-    width: 20%;
-    height: 60px;
-    margin-left: 20px;
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .search-container {
+    position: relative;
+  }
+  
+  #search-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .autocomplete-results {
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .autocomplete-results li {
+    color: black;
+    padding: 8px;
     cursor: pointer;
-    
-}
-.search-box  button img {
-    width: 16px;
-}
-
+    transition: background-color 0.3s;
+  }
+  
+  .autocomplete-results li:hover {
+    background-color: #f4f4f4;
+  }
+  
 .weather{
     font-size: 20px;
     width: 70%;
